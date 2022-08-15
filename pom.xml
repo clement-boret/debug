@@ -33,6 +33,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<!-- TIDAL -->
+<dependency>
+	<groupId>com.tidal</groupId>
+	<artifactId>log-request-response</artifactId>
+	<version>1.23</version>
+</dependency>
 	</dependencies>
 
 	<build>
