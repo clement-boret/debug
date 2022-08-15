@@ -45,18 +45,18 @@ public class DemoApplication {
 		}
 	}
 
-	@Bean
-	public CommonsRequestLoggingFilter logFilter() {
-		CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
+	// @Bean
+	// public CommonsRequestLoggingFilter logFilter() {
+	// 	CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
 
-		filter.setIncludeQueryString(true);
-		filter.setIncludePayload(true);
-		filter.setMaxPayloadLength(10000);
-		filter.setIncludeHeaders(true);
-		filter.setIncludeClientInfo(true);
+	// 	filter.setIncludeQueryString(true);
+	// 	filter.setIncludePayload(true);
+	// 	filter.setMaxPayloadLength(10000);
+	// 	filter.setIncludeHeaders(true);
+	// 	filter.setIncludeClientInfo(true);
 
-		return filter;
-	}
+	// 	return filter;
+	// }
 
 	@Data
 	@Builder
