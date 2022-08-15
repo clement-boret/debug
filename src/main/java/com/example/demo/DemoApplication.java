@@ -19,52 +19,54 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @SpringBootApplication
-@EnableLogRequestResponse
+//@EnableLogRequestResponse
 @Slf4j
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@RestController
-	@RequestMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	public static class resourceNameController {
+    @RestController
+    @RequestMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public static class resourceNameController {
 
-		public resourceNameController() {
-			log.info("oi");
-		}
+        public resourceNameController() {
+            log.info("oi");
+        }
 
-		@PostMapping(path = "/feedback")
-		public ResponseEntity<String> handleNonBrowserSubmissions(Optional<Feedback> feedback,
+        @PostMapping(path = "/feedback")
+        public ResponseEntity<String> handleNonBrowserSubmissions(Optional<Feedback> feedback,
 		                                                          @RequestParam(required = false) String myextra,
 		                                                          @RequestParam(required = false) String hello)
 		        throws Exception {
-			// Save feedback data
-			return new ResponseEntity<String>("Thank you for submitting feedback", HttpStatus.OK);
-		}
-	}
+            // Save feedback data
+            return new ResponseEntity<String>("Thank you for submitting feedback", HttpStatus.OK);
+        }
+    }
 
-	// @Bean
-	// public CommonsRequestLoggingFilter logFilter() {
-	// 	CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
+    // @Bean
+    // public CommonsRequestLoggingFilter logFilter() {
+    // 	CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
 
-	// 	filter.setIncludeQueryString(true);
-	// 	filter.setIncludePayload(true);
-	// 	filter.setMaxPayloadLength(10000);
-	// 	filter.setIncludeHeaders(true);
-	// 	filter.setIncludeClientInfo(true);
+    // 	filter.setIncludeQueryString(true);
+    // 	filter.setIncludePayload(true);
+    // 	filter.setMaxPayloadLength(10000);
+    // 	filter.setIncludeHeaders(true);
+    // 	filter.setIncludeClientInfo(true);
 
-	// 	return filter;
-	// }
+    // 	return filter;
+    // }
 
-	@Data
-	@Builder
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Feedback {
-		private String emailId;
-		private String comment;
-	}
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Feedback {
+        private String emailId;
+        private String comment;
+        private String myextra;
+        private String hello;
+    }
 
 }
